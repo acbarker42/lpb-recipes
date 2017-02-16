@@ -21,7 +21,7 @@ public class RecipeDAO {
 			Transaction transaction = session.beginTransaction();
 			Recipe recipe = new Recipe();
 			recipe.setRecipeName(recipeName);
-			recipe.setDirections(directions;
+			recipe.setDirections(directions);
 			recipe.setNotes(notes);
 			session.save(recipe);
 			transaction.commit();
