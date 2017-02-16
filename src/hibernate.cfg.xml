@@ -16,6 +16,6 @@
 <property name="hibernate.current_session_context_class">thread</property>
 
 <mapping resource="com/lazypaleobaker/bean/user.hbm.xml"/>
-
+<mapping resource="com/lazypaleobaker/bean/recipe.hbm.xml"/>
 </session-factory>
 </hibernate-configuration>

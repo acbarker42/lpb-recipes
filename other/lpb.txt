@@ -1,0 +1,5 @@
+RECIPE (RecipeID, RecipeName, AuthorID, Directions, Notes)
+RECIPE_TYPE(Type, RecipeID) //Paleo, NoNi, FODMAP, AIP
+ORIGINAL_AUTHOR(AuthorID, AuthorName, Website)
+INGREDIENT(IngredientID, Name, Quantity, PurchaseURL)
+RECIPE_INGREDIENTS(RecipeID, IngredientID)
