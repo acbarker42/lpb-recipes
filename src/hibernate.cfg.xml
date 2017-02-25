@@ -6,7 +6,10 @@
 <hibernate-configuration>
 <session-factory>
 <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+<!-- Amazon settings
 <property name="hibernate.connection.url">jdbc:mysql://lpb-recipes.cuvzkihslwac.us-east-2.rds.amazonaws.com:3306/lpb_recipes</property>
+ -->
+<property name="hibernate.connection.url">jdbc:mysql://localhost:8889/lpb_recipes</property>
 <property name="hibernate.connection.username">lpbAdmin</property>
 <property name="hibernate.connection.password">zaq1ZAQ!</property>
 
@@ -14,8 +17,9 @@
 <property name="show_sql">true</property>
 <property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
 <property name="hibernate.current_session_context_class">thread</property>
-
+ 
 <mapping resource="com/lazypaleobaker/bean/user.hbm.xml"/>
 <mapping resource="com/lazypaleobaker/bean/recipe.hbm.xml"/>
+
 </session-factory>
 </hibernate-configuration>

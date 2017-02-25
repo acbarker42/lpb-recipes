@@ -8,6 +8,8 @@
 <title>Registration Form</title>
 </head>
 <body>
+<a href="index.jsp">Home</a>
+<a href="addRecipe.jsp">Add Recipe</a>
     <h1>Registration Form:</h1>
     <form action="register" method="post">
         <table cellpadding="3pt">
@@ -39,5 +41,6 @@
         <p />
         <input type="submit" value="Register" />
     </form>
+
 </body>
 </html>
