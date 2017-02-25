@@ -1,6 +1,12 @@
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"  %>
+<%@ page import="java.util.List,com.lazypaleobaker.dao.RecipeDAO,com.lazypaleobaker.bean.Recipe" %>
+
+ 
+ <% 
+List<Recipe> recipes = RecipeDAO.getAllRecipes();
+ %>
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,6 +14,33 @@
 <title>Add Recipe</title>
 </head>
 <body>
+       <table border="1">
+       <thead>
+       <tr>
+       <th>Recipe ID</th>
+       <th>Recipe Name</th>
+       <th>Directions</th>
+       <th>Notes</th>
+       <th>Edit</th>
+       <th>Delete</th>
+       </tr>
+       </thead>
+       <tbody>
+       <% for (Recipe iter : recipes) { %>
+       <tr>
+       <td><%= iter.getRecipeID()%></td>
+       <td><%= iter.getRecipeName()%></td>
+       <td><%= iter.getDirections()%></td>
+       <td><%= iter.getNotes()%></td>
+       <td><a href="editRecipe.jsp?id=<%= iter.getRecipeID()%>">Edit</a></td>
+       <td><a href="deleteRecipe.jsp?id=<%= iter.getRecipeID()%>">Delete</a></td>
+       </tr>
+       </tbody>
+       <%
+}
+%>
+       </table>
+
 <a href="register.jsp">Register</a>
 <a href="index.jsp">Home</a>
     <h1>Add Recipe:</h1>

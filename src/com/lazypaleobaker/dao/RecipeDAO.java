@@ -1,5 +1,7 @@
 package com.lazypaleobaker.dao;
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -7,18 +9,17 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import com.lazypaleobaker.bean.Recipe;
+import com.lazypaleobaker.util.HibernateUtil;
 
 public class RecipeDAO {
-	public void addRecipeDetails(String recipeName, String directions, String notes) {
+	public static void addRecipeDetails(String recipeName, String directions, String notes) {
 		try {
 			// 1. configuring hibernate
 			Configuration configuration = new Configuration().configure();
-			// 2. create sessionfactory
 			SessionFactory sessionFactory = configuration.buildSessionFactory();
-			// 3. Get Session object
 			Session session = sessionFactory.openSession();
-			// 4. Starting Transaction
 			Transaction transaction = session.beginTransaction();
+			
 			Recipe recipe = new Recipe();
 			recipe.setRecipeName(recipeName);
 			recipe.setDirections(directions);
@@ -32,4 +33,15 @@ public class RecipeDAO {
 			System.out.println("error");
 		}
 	}
+    public static List<Recipe> getAllRecipes() {
+    	Session session = HibernateUtil.getSessionFactory().openSession(); 
+		session.beginTransaction();
+    	List result = session.createQuery( "from RECIPE" ).list();
+		for ( Recipe recipe : (List<Recipe>) result ) {
+			System.out.println( "Event (" + recipe.getRecipeName() + ") : " + recipe.getDirections() );
+		}
+		session.getTransaction().commit();
+		session.close();
+        return (List<Recipe>)result;
+    }
 }
