@@ -5,12 +5,12 @@
 
 <head>
 	<title>Save Recipe</title>
-	<!--  Add css later
+	<!--  Add css later -->
 	<link type="text/css"
 		  rel="stylesheet"
 		  href="${pageContext.request.contextPath}/resources/css/style.css">
 
-	-->
+	
 </head>
 
 <body>

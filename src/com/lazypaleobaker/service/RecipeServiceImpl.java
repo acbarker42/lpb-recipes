@@ -46,4 +46,12 @@ public class RecipeServiceImpl implements RecipeService {
 		recipeDAO.deleteRecipe(theId);
 		
 	}
+
+
+	@Override
+	@Transactional
+	public List<Recipe> searchRecipes(String theSearchName) {
+
+		return recipeDAO.searchRecipes(theSearchName);
+	}
 }

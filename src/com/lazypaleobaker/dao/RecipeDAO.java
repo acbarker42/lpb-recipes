@@ -14,4 +14,6 @@ public interface RecipeDAO {
 
 	public void deleteRecipe(int theId);
 
+	public List<Recipe> searchRecipes(String theSearchName);
+
 }

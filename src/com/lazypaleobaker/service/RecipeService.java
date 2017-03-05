@@ -13,4 +13,6 @@ public interface RecipeService {
 	public Recipe getRecipe(int theId);
 
 	public void deleteRecipe(int theId);
+
+	public List<Recipe> searchRecipes(String theSearchName);
 }

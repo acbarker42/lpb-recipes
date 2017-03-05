@@ -69,4 +69,16 @@ public class RecipeController {
 		recipeService.deleteRecipe(theId);
 		return "redirect:/recipe/list";
 	}
+	@PostMapping("/search")
+    public String searchRecipes(@RequestParam("theSearchName") String theSearchName,
+                                    Model theModel) {
+
+        // search customers from the service
+        List<Recipe> theRecipes = recipeService.searchRecipes(theSearchName);
+                
+        // add the customers to the model
+        theModel.addAttribute("recipes", theRecipes);
+
+        return "list-recipes";        
+    }
 }

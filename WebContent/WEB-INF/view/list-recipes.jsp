@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 
@@ -7,19 +8,20 @@
 <head>
 	<title>List Recipes</title>
 	
-	<!-- reference style sheet 
+	<!-- reference style sheet -->
 
 	<link type="text/css"  	
 		  rel="stylesheet"
 		  href="${pageContext.request.contextPath}/resources/css/style.css" />
-	-->
+	
 </head>
 
 <body>
 
 	<div id="wrapper">
 		<div id="header">
-			<h2>lazy paleo baker Recipe List</h2>
+			<h2>lazy paleo baker </h2>
+			<h3>Recipe List</h3>
 		</div>
 	</div>
 	
@@ -30,8 +32,15 @@
 		<input type="button" class="add-button" value="Add Recipe" 
 			onclick="window.location.href='showAddForm'; return false;"/>
 		
+		<!--  add a search box -->
+            <form:form action="search" method="POST">
+                Search recipes: <input type="text" name="theSearchName" />
+                
+                <input type="submit" value="Search" class="add-button" />
+            </form:form>
+            
 			<!--  add our html table here -->
-		
+			<br>
 			<table>
 				<tr>
 					<th>Recipe Name</th>

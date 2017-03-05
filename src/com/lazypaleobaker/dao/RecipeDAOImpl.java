@@ -66,4 +66,35 @@ public class RecipeDAOImpl implements RecipeDAO {
 		
 	}
 
+	@Override
+	public List<Recipe> searchRecipes(String theSearchName) {
+
+		// get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+
+		Query theQuery = null;
+
+		// only search by name if theSearchName is not empty
+		if (theSearchName != null && theSearchName.trim().length() > 0) {
+
+			// search in recipe name or directions
+			theQuery = currentSession
+					.createQuery("from Recipe where lower(recipeName) like :theName or lower(recipeName) like :theName", 
+							Recipe.class);
+			theQuery.setParameter("theName", "%" + theSearchName.toLowerCase() + "%");
+
+		}
+		else {
+			// theSearchName is empty, return all Recipes
+			theQuery = currentSession.createQuery("from Recipe", Recipe.class);            
+		}
+
+		// execute query and get result list
+		List<Recipe> recipes = theQuery.getResultList();
+
+		// return the results        
+		return recipes;
+	        
+	    }
+
 }
