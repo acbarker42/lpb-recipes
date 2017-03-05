@@ -21,4 +21,13 @@ public class RecipeServiceImpl implements RecipeService {
 		//delegate call to DAO
 		return recipeDAO.getRecipes();
 	}
+
+
+	@Override
+	@Transactional
+	public void saveRecipe(Recipe theRecipe) {
+		
+		recipeDAO.saveRecipe(theRecipe);
+		
+	}
 }

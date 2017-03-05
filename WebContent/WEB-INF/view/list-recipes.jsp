@@ -28,7 +28,7 @@
 		
 		<!-- add "add" button -->
 		<input type="button" class="add-button" value="Add Recipe" 
-			onclick="window.location.href='showFormForAdd'; return false;"/>
+			onclick="window.location.href='showAddForm'; return false;"/>
 		
 			<!--  add our html table here -->
 		

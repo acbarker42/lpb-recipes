@@ -35,4 +35,13 @@ public class RecipeDAOImpl implements RecipeDAO {
 		return recipes;
 	}
 
+	@Override
+	public void saveRecipe(Recipe theRecipe) {
+		// TODO Auto-generated method stub
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		//save the recipe
+		currentSession.saveOrUpdate(theRecipe);
+	}
+
 }
