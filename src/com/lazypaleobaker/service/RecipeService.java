@@ -1,10 +1,10 @@
-package com.lazypaleobaker.dao;
+package com.lazypaleobaker.service;
 
 import java.util.List;
 
 import com.lazypaleobaker.entity.Recipe;
 
-public interface RecipeDAO {
-
+public interface RecipeService {
+	
 	public List<Recipe> getRecipes();
 }
