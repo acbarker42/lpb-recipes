@@ -37,11 +37,33 @@ public class RecipeDAOImpl implements RecipeDAO {
 
 	@Override
 	public void saveRecipe(Recipe theRecipe) {
-		// TODO Auto-generated method stub
+
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		//save the recipe
 		currentSession.saveOrUpdate(theRecipe);
+	}
+
+	@Override
+	public Recipe getRecipe(int theId) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		//read object from database using id
+		Recipe theRecipe = currentSession.get(Recipe.class, theId);
+		
+		return theRecipe;
+	}
+
+	@Override
+	public void deleteRecipe(int theId) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		//delete object from database using id(primary key)
+		
+		Query theQuery = currentSession.createQuery("delete from Recipe where id=:recipeId");
+		theQuery.setParameter("recipeId", theId);
+		theQuery.executeUpdate();
+		
 	}
 
 }

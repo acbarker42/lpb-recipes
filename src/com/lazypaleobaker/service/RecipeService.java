@@ -9,4 +9,8 @@ public interface RecipeService {
 	public List<Recipe> getRecipes();
 
 	public void saveRecipe(Recipe theRecipe);
+
+	public Recipe getRecipe(int theId);
+
+	public void deleteRecipe(int theId);
 }

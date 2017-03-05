@@ -30,4 +30,20 @@ public class RecipeServiceImpl implements RecipeService {
 		recipeDAO.saveRecipe(theRecipe);
 		
 	}
+
+
+	@Override
+	@Transactional
+	public Recipe getRecipe(int theId) {
+		
+		return recipeDAO.getRecipe(theId);
+	}
+
+
+	@Override
+	@Transactional
+	public void deleteRecipe(int theId) {
+		recipeDAO.deleteRecipe(theId);
+		
+	}
 }

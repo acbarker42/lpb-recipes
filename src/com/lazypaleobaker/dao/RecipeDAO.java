@@ -10,4 +10,8 @@ public interface RecipeDAO {
 
 	public void saveRecipe(Recipe theRecipe);
 
+	public Recipe getRecipe(int theId);
+
+	public void deleteRecipe(int theId);
+
 }

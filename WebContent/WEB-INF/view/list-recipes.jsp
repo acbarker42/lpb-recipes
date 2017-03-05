@@ -44,26 +44,26 @@
 				<!-- loop over and print our recipes -->
 				<c:forEach var="tempRecipe" items="${recipes}">
 				
-					<!--  construct an "update" link with recipe id 
-					<c:url var="updateLink" value="/recipe/showFormForUpdate">
+					<!--  construct an "update" link with recipe id -->
+					<c:url var="updateLink" value="/recipe/showUpdateForm">
 						<c:param name="recipeId" value="${tempRecipe.id}" />
 					</c:url>
-					<!--  construct an "delete" link with Recipe id 
+					<!--  construct an "delete" link with Recipe id -->
 					<c:url var="deleteLink" value="/recipe/delete">
 						<c:param name="recipeId" value="${tempRecipe.id}" />
 					</c:url>
-					-->
+					
 					<tr>
 						<td> ${tempRecipe.recipeName} </td>
 						<td> ${tempRecipe.directions} </td>
 						<td> ${tempRecipe.notes} </td>
-						<!--  
+						
 						<td><a href="${updateLink}"> Update</a>
 						|
 						 <a href="${deleteLink}" 
 						 	 onclick="if(!(confirm('Are you sure you want to delete this recipe?'))) return false;"> Delete</a>
 						 <td>
-						 -->
+						 
 					</tr>
 				
 				</c:forEach>
