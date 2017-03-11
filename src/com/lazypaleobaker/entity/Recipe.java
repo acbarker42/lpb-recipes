@@ -2,9 +2,12 @@ package com.lazypaleobaker.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +18,11 @@ public class Recipe {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
-	
+	/*
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="author_id")
+	private Author author;
+	*/
 	@Column(name="recipe_name")
 	private String recipeName;
 	
@@ -44,7 +51,15 @@ public class Recipe {
 	public void setRecipeName(String recipeName) {
 		this.recipeName = recipeName;
 	}
+/*
+	public Author getAuthor() {
+		return author;
+	}
 
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
+*/
 	public String getDirections() {
 		return directions;
 	}

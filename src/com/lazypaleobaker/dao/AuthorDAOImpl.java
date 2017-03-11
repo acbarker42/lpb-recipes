@@ -9,67 +9,66 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.lazypaleobaker.entity.Author;
-import com.lazypaleobaker.entity.Recipe;
+import com.lazypaleobaker.entity.Author;
 
 @Repository
-public class RecipeDAOImpl implements RecipeDAO {
+public class AuthorDAOImpl implements AuthorDAO {
 
 	//inject the session factory
 	@Autowired
 	private SessionFactory sessionFactory;
 	
 	@Override
-	public List<Recipe> getRecipes() {
-		
+	public List<Author> getAuthors() {
 		//get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		//create a query to get recipes
-		Query<Recipe> theQuery =
-				currentSession.createQuery("from Recipe", 
-											Recipe.class);
+		//create a query to get author
+		Query<Author> theQuery =
+				currentSession.createQuery("from Author", 
+											Author.class);
 		
 		//execute query and get result list 
-		List<Recipe> recipes = theQuery.getResultList();
-		System.out.println("RecipeDAOImpl: " + recipes);
+		List<Author> authors = theQuery.getResultList();
+		System.out.println("AuthorDAOImpl: " + authors);
 		//return results
-		return recipes;
+		return authors;
 	}
-
+	
 	@Override
-	public void saveRecipe(Recipe theRecipe) {
+	public void saveAuthor(Author theAuthor) {
 
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		//save the recipe
-		currentSession.saveOrUpdate(theRecipe);
+		//save the author
+		currentSession.saveOrUpdate(theAuthor);
 
 	}
 
 	@Override
-	public Recipe getRecipe(int theId) {
+	public Author getAuthor(int theId) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		//read object from database using id
-		Recipe theRecipe = currentSession.get(Recipe.class, theId);
+		Author theAuthor = currentSession.get(Author.class, theId);
 		
-		return theRecipe;
+		return theAuthor;
 	}
 
 	@Override
-	public void deleteRecipe(int theId) {
+	public void deleteAuthor(int theId) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		//delete object from database using id(primary key)
 		
-		Query theQuery = currentSession.createQuery("delete from Recipe where id=:recipeId");
-		theQuery.setParameter("recipeId", theId);
+		Query theQuery = currentSession.createQuery("delete from Author where id=:authorId");
+		theQuery.setParameter("authorId", theId);
 		theQuery.executeUpdate();
 		
 	}
 
 	@Override
-	public List<Recipe> searchRecipes(String theSearchName) {
+	public List<Author> searchAuthors(String theSearchName) {
 
 		// get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -79,24 +78,26 @@ public class RecipeDAOImpl implements RecipeDAO {
 		// only search by name if theSearchName is not empty
 		if (theSearchName != null && theSearchName.trim().length() > 0) {
 
-			// search in recipe name or directions
+			// search in author name or directions
 			theQuery = currentSession
-					.createQuery("from Recipe where lower(recipeName) like :theName or lower(recipeName) like :theName", 
-							Recipe.class);
+					.createQuery("from Author where lower(firstName) like :theName "
+							+ "or lower(lastName) like :theName "
+							+ "or lower(website) like :theName", 
+							Author.class);
 			theQuery.setParameter("theName", "%" + theSearchName.toLowerCase() + "%");
 
 		}
 		else {
-			// theSearchName is empty, return all Recipes
-			theQuery = currentSession.createQuery("from Recipe", Recipe.class);            
+			// theSearchName is empty, return all Authors
+			theQuery = currentSession.createQuery("from Author", Author.class);            
 		}
 
 		// execute query and get result list
-		List<Recipe> recipes = theQuery.getResultList();
+		List<Author> authors = theQuery.getResultList();
 
 		// return the results        
-		return recipes;
+		return authors;
 	        
-	    }
+	   }
 
 }

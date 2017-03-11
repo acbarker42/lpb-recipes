@@ -31,6 +31,9 @@
 		<!-- add "add" button -->
 		<input type="button" class="add-button" value="Add Recipe" 
 			onclick="window.location.href='showAddForm'; return false;"/>
+		<!-- add "author" button -->
+		<input type="button" class="add-button" value="View By Author" 
+			onclick="window.location.href='../author/list'; return false;"/>
 		
 		<!--  add a search box -->
             <form:form action="search" method="POST">

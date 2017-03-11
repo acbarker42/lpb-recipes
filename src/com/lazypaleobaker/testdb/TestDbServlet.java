@@ -25,7 +25,7 @@ public class TestDbServlet extends HttpServlet {
 		//setup connection variables
 		String user = "lpbAdmin";
 		String pass = "zaq1ZAQ!";
-		String jdbcUrl = "jdbc:mysql://localhost:8889/lpb_recipes?useSSL=false";
+		String jdbcUrl = "jdbc:mysql://lpb-recipes.cuvzkihslwac.us-east-2.rds.amazonaws.com:3306/lpb_recipes?useSSL=false";
 		String driver = "com.mysql.jdbc.Driver";
 		
 		//get connection to database

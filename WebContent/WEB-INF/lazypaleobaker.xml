@@ -31,9 +31,10 @@
 	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:8889/lpb_recipes?useSSL=false" />
+        <property name="jdbcUrl" value="jdbc:mysql://lpb-recipes.cuvzkihslwac.us-east-2.rds.amazonaws.com:3306/lpb_recipes" />
         <property name="user" value="lpbAdmin" />
         <property name="password" value="zaq1ZAQ!" /> 
+
 
         <!-- these are connection pool properties for C3P0 -->
         <property name="minPoolSize" value="5" />

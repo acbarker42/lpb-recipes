@@ -2,6 +2,7 @@ package com.lazypaleobaker.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +27,7 @@ public class RecipeController {
 	@GetMapping("/list")
 	public String listRecipes(Model theModel) {
 		
-		//get recipes from the recipe service
+		//get recipes and author info from the recipe service
 		List<Recipe> theRecipes = recipeService.getRecipes();
 		
 		//add the recipes to the model
