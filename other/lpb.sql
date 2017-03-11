@@ -25,13 +25,13 @@ CONSTRAINT USER_PK PRIMARY KEY (UserID)
 );
 
 CREATE TABLE author (
-id Int AUTO_INCREMENT NOT NULL,
+author_id Int AUTO_INCREMENT NOT NULL,
 first_name Char(30) NOT NULL,
 last_name Char(30) NOT NULL,
 website Char(30) NOT NULL,
 description Char(255)  NOT NULL,
 notes Char(255) NULL,
-CONSTRAINT AUTHOR_PK PRIMARY KEY (id)
+CONSTRAINT AUTHOR_PK PRIMARY KEY (author_id)
 );
 
 INSERT INTO `author` VALUES 
@@ -40,3 +40,10 @@ INSERT INTO `author` VALUES
 	(3,'Ajay','Rao','ajay@luv2code.com', 'description', 'notes'),
 	(4,'Mary','Public','mary@luv2code.com', 'description', 'notes'),
 	(5,'Maxwell','Dixon','max@luv2code.com', 'description', 'notes');
+	
+INSERT INTO `recipe` VALUES 
+	(1,'Recipe1','Adams', 'notes'),
+	(2,'Recipe2','Doe', 'notes'),
+	(3,'Recipe3','Rao',  'notes'),
+	(4,'Recipe4','Public', 'notes'),
+	(5,'Recipe5','Dixon', 'notes');
