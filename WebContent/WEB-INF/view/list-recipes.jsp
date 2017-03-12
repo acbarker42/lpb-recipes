@@ -47,6 +47,7 @@
 			<table>
 				<tr>
 					<th>Recipe Name</th>
+					<th>Author</th>
 					<th>Directions</th>
 					<th>Notes</th>
 					<th>Action</th>
@@ -58,15 +59,16 @@
 				
 					<!--  construct an "update" link with recipe id -->
 					<c:url var="updateLink" value="/recipe/showUpdateForm">
-						<c:param name="recipeId" value="${tempRecipe.id}" />
+						<c:param name="recipeId" value="${tempRecipe.recipeId}" />
 					</c:url>
 					<!--  construct an "delete" link with Recipe id -->
 					<c:url var="deleteLink" value="/recipe/delete">
-						<c:param name="recipeId" value="${tempRecipe.id}" />
+						<c:param name="recipeId" value="${tempRecipe.recipeId}" />
 					</c:url>
 					
 					<tr>
 						<td> ${tempRecipe.recipeName} </td>
+						<td> ${tempRecipe.author.lastName} </td>
 						<td> ${tempRecipe.directions} </td>
 						<td> ${tempRecipe.notes} </td>
 						

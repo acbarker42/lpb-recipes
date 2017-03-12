@@ -32,8 +32,8 @@ public class Author {
 	@Column(name="description")
 	private String description;
 	
-	//@OneToMany(fetch = FetchType.EAGER, mappedBy="author")
-	//private Set<Recipe> recipes;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="author")
+	private Set<Recipe> recipes;
 	
 	@Column(name="notes")
 	private String notes;
@@ -82,7 +82,7 @@ public class Author {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-/*
+
 	public Set<Recipe> getRecipes() {
 		return recipes;
 	}
@@ -90,7 +90,7 @@ public class Author {
 	public void setRecipes(Set<Recipe> recipes) {
 		this.recipes = recipes;
 	}
-*/
+	
 	public String getNotes() {
 		return notes;
 	}

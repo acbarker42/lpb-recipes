@@ -26,15 +26,19 @@
 	
 		<form:form action="saveRecipe" modelAttribute="recipe" method="POST">
 		
-			<!-- need to associate this data with customer id -->
-			<form:hidden path="id" />
+			<!-- need to associate this data with recipe id -->
+			<form:hidden path="recipeId" />
 			<table>
 				<tbody>
 					<tr>
 						<td><label>Recipe  Name:</label></td>
 						<td><form:input path="recipeName" /></td>
-					</tr>
-				
+					</tr>	
+					<tr>
+						<td><label>Author Name:</label></td>
+						<td><form:input path="author" /></td>
+					</tr>						
+									
 					<tr>
 						<td><label>Directions:</label></td>
 						<td><form:input path="directions" /></td>

@@ -7,11 +7,13 @@ CONSTRAINT INGREDIENT_PK PRIMARY KEY (IngredientID)
 );
 
 CREATE TABLE recipe (
-id Int AUTO_INCREMENT NOT NULL,
+recipe_id Int AUTO_INCREMENT NOT NULL,
 recipe_name Char(30) NOT NULL,
+author_id Int NOT NULL,
 directions LongText NOT NULL,
 notes Char(255) NULL,
-CONSTRAINT RECIPE_PK PRIMARY KEY (id)
+CONSTRAINT RECIPE_PK PRIMARY KEY (recipe_id),
+CONSTRAINT RECIPE_FK FOREIGN KEY (author_id) REFERENCES author (author_id)
 );
 
 CREATE TABLE USER (
@@ -42,8 +44,9 @@ INSERT INTO `author` VALUES
 	(5,'Maxwell','Dixon','max@luv2code.com', 'description', 'notes');
 	
 INSERT INTO `recipe` VALUES 
-	(1,'Recipe1','Adams', 'notes'),
-	(2,'Recipe2','Doe', 'notes'),
-	(3,'Recipe3','Rao',  'notes'),
-	(4,'Recipe4','Public', 'notes'),
-	(5,'Recipe5','Dixon', 'notes');
+	(1,'Recipe1',1,'Adams', 'notes'),
+	(2,'Recipe2',2,'Doe', 'notes'),
+	(3,'Recipe3',2,'Rao',  'notes'),
+	(4,'Recipe4',3,'Public', 'notes'),
+	(5,'Recipe5',4,'Dixon', 'notes'),
+	(6,'Recipe4',5,'Public', 'notes');

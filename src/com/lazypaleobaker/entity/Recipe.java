@@ -16,13 +16,13 @@ public class Recipe {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id;
-	/*
+	@Column(name="recipe_id")
+	private int recipeId;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="author_id")
 	private Author author;
-	*/
+	
 	@Column(name="recipe_name")
 	private String recipeName;
 	
@@ -36,12 +36,12 @@ public class Recipe {
 		
 	}
 
-	public int getId() {
-		return id;
+	public int getRecipeId() {
+		return recipeId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setRecipeId(int id) {
+		this.recipeId = id;
 	}
 
 	public String getRecipeName() {
@@ -51,7 +51,7 @@ public class Recipe {
 	public void setRecipeName(String recipeName) {
 		this.recipeName = recipeName;
 	}
-/*
+
 	public Author getAuthor() {
 		return author;
 	}
@@ -59,7 +59,7 @@ public class Recipe {
 	public void setAuthor(Author author) {
 		this.author = author;
 	}
-*/
+
 	public String getDirections() {
 		return directions;
 	}
@@ -78,7 +78,7 @@ public class Recipe {
 
 	@Override
 	public String toString() {
-		return "Recipe [id=" + id + ", recipeName=" + recipeName + ", directions=" + directions + ", notes=" + notes
+		return "Recipe [id=" + recipeId + ", recipeName=" + recipeName + ", directions=" + directions + ", notes=" + notes
 				+ "]";
 	}
 	
