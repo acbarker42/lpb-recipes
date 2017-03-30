@@ -8,26 +8,21 @@
 <head>
 	<title>List Recipes</title>
 	
-	<!-- reference style sheet -->
-
-	<link type="text/css"  	
-		  rel="stylesheet"
-		  href="${pageContext.request.contextPath}/resources/css/style.css" />
+	<!-- reference style sheets and javascript -->
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" />
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/lpb.css" />
+	<script src="<c:url value="/resources/js/modal.js" />"></script>
+	<script src="<c:url value="/resources/js/scrollSquishAndMenu.js" />"></script>
 	
 </head>
 
 <body>
 
-	<div id="wrapper">
-		<div id="header">
-			<h2>lazy paleo baker </h2>
-			<h3>Recipe List</h3>
-		</div>
-	</div>
-	
-	<div id="container">	
-		<div id="content">
-		
+  <div id="wrapper">
+    <div id="pagetop"><img id="cupcake" src="<c:url value="/resources/img/cupcake.png" />"/>
+    <button id="roundButton"></button>
+    <h1>Lazy Paleo Baker</h1>
+    <div id="searchArea">
 		<!-- add "add" button -->
 		<input type="button" class="add-button" value="Add Recipe" 
 			onclick="window.location.href='showAddForm'; return false;"/>
@@ -41,6 +36,29 @@
                 
                 <input type="submit" value="Search" class="add-button" />
             </form:form>
+	</div>
+  </div>
+
+    <div id="theMenu">
+      <h2><a href="#">Home</a></h2>
+      <h2><a href="#">About</a></h2>
+      <h2><a href="#">Recipes</a></h2>
+      <h2><a href="#">Resources</a></h2>
+      <h2><a href="#">Contact</a></h2>
+    </div>
+	
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+	
+	  <!-- Modal content -->
+	  <div class="modal-content">
+	    <span class="close">&times;</span>
+	    <p id="modalP">Initial Modal Text</p>
+	  </div>
+	 </div>
+	<div id="container">	
+		<div id="content">
+		     <div id="results">
             
 			<!--  add our html table here -->
 			<br>
@@ -48,8 +66,6 @@
 				<tr>
 					<th>Recipe Name</th>
 					<th>Author</th>
-					<th>Directions</th>
-					<th>Notes</th>
 					<th>Action</th>
 					
 				</tr>
@@ -67,11 +83,14 @@
 					</c:url>
 					
 					<tr>
-						<td> ${tempRecipe.recipeName} </td>
+						<td><a href="javascript:showRecipeInfo(${tempRecipe.recipeId})"> ${tempRecipe.recipeName}</a></td>
 						<td> ${tempRecipe.author.lastName} </td>
-						<td> ${tempRecipe.directions} </td>
-						<td> ${tempRecipe.notes} </td>
-						
+						<div id="${tempRecipe.recipeId}" class="hidden">
+						    <p>	${tempRecipe.directions} <br>
+						 		${tempRecipe.notes}</p>
+						 </div>
+					  	
+
 						<td><a href="${updateLink}"> Update</a>
 						|
 						 <a href="${deleteLink}" 
@@ -83,10 +102,11 @@
 				</c:forEach>
 						
 			</table>
-				
+		 </div>		
 		</div>
 	
 	</div>
+</div>
 	
 
 </body>

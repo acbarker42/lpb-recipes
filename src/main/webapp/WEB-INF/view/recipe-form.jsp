@@ -5,23 +5,31 @@
 
 <head>
 	<title>Save Recipe</title>
-	<!--  Add css later -->
-	<link type="text/css"
-		  rel="stylesheet"
-		  href="${pageContext.request.contextPath}/resources/css/style.css">
-
 	
+	<!-- reference style sheets and javascript -->
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" />
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/lpb.css" />
 </head>
 
 <body>
-	
 	<div id="wrapper">
-		<div id="header">
-			<h2>Recipe Management</h2>
-		</div>
-	</div>
+    <div id="pagetop"><img id="cupcake" src="${pageContext.request.contextPath}/resources/img/cupcake.png" />
+    <button id="roundButton"></button>
+    <h1>Lazy Paleo Baker</h1>
+    <div id="searchArea">
+    </div>
+  </div>
 
+    <div id="theMenu">
+      <h2><a href="#">Home</a></h2>
+      <h2><a href="#">About</a></h2>
+      <h2><a href="#">Recipes</a></h2>
+      <h2><a href="#">Resources</a></h2>
+      <h2><a href="#">Contact</a></h2>
+    </div>
 	<div id="container">
+		<div id="content">
+		    <div id="results">
 		<h3>Save Recipe</h3>
 	
 		<form:form action="saveRecipe" modelAttribute="recipe" method="POST">
@@ -66,9 +74,10 @@
 		<p>
 			<a href="${pageContext.request.contextPath}/recipe/list">Back to List</a>
 		</p>
-	
 	</div>
-
+	</div>
+	</div>
+</div>
 </body>
 
 </html>

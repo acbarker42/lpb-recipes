@@ -8,26 +8,19 @@
 <head>
 	<title>List Authors</title>
 	
-	<!-- reference style sheet -->
-
-	<link type="text/css"  	
-		  rel="stylesheet"
-		  href="${pageContext.request.contextPath}/resources/css/style.css" />
+	<!-- reference style sheets and javascript -->
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" />
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/lpb.css" />
 	
 </head>
 
 <body>
 
-	<div id="wrapper">
-		<div id="header">
-			<h2>lazy paleo baker </h2>
-			<h3>Author List</h3>
-		</div>
-	</div>
-	
-	<div id="container">	
-		<div id="content">
-		
+  <div id="wrapper">
+    <div id="pagetop"><img id="cupcake" src="<c:url value="/resources/img/cupcake.png" />"/>
+    <button id="roundButton"></button>
+    <h1>Lazy Paleo Baker</h1>
+    <div id="searchArea">
 		<!-- add "add" button -->
 		<input type="button" class="add-button" value="Add Author" 
 			onclick="window.location.href='showAddForm'; return false;"/>
@@ -40,6 +33,20 @@
                 
                 <input type="submit" value="Search" class="add-button" />
             </form:form>
+	</div>
+   </div>
+   
+    <div id="theMenu">
+      <h2><a href="#">Home</a></h2>
+      <h2><a href="#">About</a></h2>
+      <h2><a href="#">Recipes</a></h2>
+      <h2><a href="#">Resources</a></h2>
+      <h2><a href="#">Contact</a></h2>
+    </div>
+	
+	<div id="container">	
+		<div id="content">
+		<div id="results">
             
 			<!--  add our html table here -->
 			<br>
@@ -84,11 +91,11 @@
 				</c:forEach>
 						
 			</table>
-				
+			</div>	
 		</div>
 
 	</div>
-	
+</div>	
 
 </body>
 
