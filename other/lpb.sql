@@ -44,9 +44,20 @@ INSERT INTO `author` VALUES
 	(5,'Maxwell','Dixon','max@luv2code.com', 'description', 'notes');
 	
 INSERT INTO `recipe` VALUES 
-	(1,'Recipe1',1,'Adams', 'notes'),
-	(2,'Recipe2',2,'Doe', 'notes'),
-	(3,'Recipe3',2,'Rao',  'notes'),
-	(4,'Recipe4',3,'Public', 'notes'),
-	(5,'Recipe5',4,'Dixon', 'notes'),
-	(6,'Recipe4',5,'Public', 'notes');
+	(1,'Recipe1',1,'Adams - Directions for recipe1', 'notes for recipe1'),
+	(2,'Recipe2',2,'Doe - Directions for recipe2', 'notes for recipe2'),
+	(3,'Recipe3',2,'Doe - Directions for recipe3',  'notes for recipe3'),
+	(4,'Recipe4',3,'Rao - Directions for recipe4', 'notes for recipe4'),
+	(5,'Recipe5',4,'Dixon - Directions for recipe5', 'notes for recipe5'),
+	(6,'Recipe6',5,'Public - Directions for recipe6', 'notes for recipe6');
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
