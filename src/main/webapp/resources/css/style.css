@@ -34,11 +34,18 @@ tr:nth-child(odd) {background: #96D9FF}
 	padding: 4px; 
 	font-size: 12px;
 	font-weight: bold;
-	width: 120px; 
+	width: 160px; 
 	padding: 5px 10px; 
-	
+	color: #003557;
 	margin-bottom: 15px;
-	background: #cccccc;
+	background: #fcf3ab;
+}
+
+.add-button:hover {
+    background-color: #96D9FF;
+    cursor: pointer;
+    border-color: #0065A6;
+    transform: scale(1.1, 1.1);
 }
 
 

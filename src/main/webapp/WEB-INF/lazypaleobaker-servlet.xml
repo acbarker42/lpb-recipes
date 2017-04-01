@@ -18,7 +18,7 @@
 	<!-- Add support for conversion, formatting and validation support -->
 	<mvc:annotation-driven/>
 
-	<!-- Define Spring MVC view resolver -->
+	<!--Define Spring MVC view resolver -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />
@@ -29,7 +29,7 @@
 	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://lpb-recipes.cuvzkihslwac.us-east-2.rds.amazonaws.com:3306/lpb_recipes" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:8889/lpb_recipes?useSSL=false" />
         <property name="user" value="lpbAdmin" />
         <property name="password" value="zaq1ZAQ!" /> 
 

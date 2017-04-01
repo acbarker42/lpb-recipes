@@ -43,8 +43,8 @@
 						<td><form:input path="recipeName" /></td>
 					</tr>	
 					<tr>
-						<td><label>Author Name:</label></td>
-						<td><form:input path="author" /></td>
+						<td><label>Author ID:</label></td>
+						<td><form:input path="author.authorId" /></td>
 					</tr>						
 									
 					<tr>
@@ -72,7 +72,7 @@
 		<div style="clear; both;"></div>
 		
 		<p>
-			<a href="${pageContext.request.contextPath}/recipe/list">Back to List</a>
+			<a href="${pageContext.request.contextPath}/recipe/management">Back to List</a>
 		</p>
 	</div>
 	</div>

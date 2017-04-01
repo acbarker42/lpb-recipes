@@ -48,7 +48,7 @@ public class RecipeController {
 	@PostMapping("/saveRecipe")
 	public String saveRecipe(@ModelAttribute("recipe") Recipe theRecipe){
 		recipeService.saveRecipe(theRecipe);
-		return "redirect:/recipe/list";
+		return "redirect:/recipe/management";
 	}
 	
 	@GetMapping("/showUpdateForm")
@@ -68,7 +68,7 @@ public class RecipeController {
 	public String deleteRecipe(@RequestParam("recipeId") int theId){
 		//delete the recipe
 		recipeService.deleteRecipe(theId);
-		return "redirect:/recipe/list";
+		return "redirect:/recipe/management";
 	}
 	@PostMapping("/search")
     public String searchRecipes(@RequestParam("theSearchName") String theSearchName,
@@ -82,4 +82,15 @@ public class RecipeController {
 
         return "list-recipes";        
     }
+	
+	@GetMapping("/management")
+	public String recipeManagement(Model theModel) {
+		
+		//get recipes and author info from the recipe service
+		List<Recipe> theRecipes = recipeService.getRecipes();
+		
+		//add the recipes to the model
+		theModel.addAttribute("recipes", theRecipes);
+		return "management";
+	}
 }

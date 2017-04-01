@@ -25,8 +25,8 @@
 		<input type="button" class="add-button" value="Add Author" 
 			onclick="window.location.href='showAddForm'; return false;"/>
 		<!-- add "author" button -->
-		<input type="button" class="add-button" value="View By Recipe" 
-			onclick="window.location.href='../recipe/list'; return false;"/>
+		<input type="button" class="add-button" value="Recipe Management" 
+			onclick="window.location.href='../recipe/management'; return false;"/>
 		<!--  add a search box -->
             <form:form action="search" method="POST">
                 Search authors: <input type="text" name="theSearchName" />
@@ -35,14 +35,6 @@
             </form:form>
 	</div>
    </div>
-   
-    <div id="theMenu">
-      <h2><a href="#">Home</a></h2>
-      <h2><a href="#">About</a></h2>
-      <h2><a href="#">Recipes</a></h2>
-      <h2><a href="#">Resources</a></h2>
-      <h2><a href="#">Contact</a></h2>
-    </div>
 	
 	<div id="container">	
 		<div id="content">

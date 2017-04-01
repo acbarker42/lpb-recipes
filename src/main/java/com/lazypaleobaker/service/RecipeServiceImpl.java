@@ -1,14 +1,13 @@
 package com.lazypaleobaker.service;
 
 import java.util.List;
-import java.util.Set;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lazypaleobaker.dao.RecipeDAO;
-import com.lazypaleobaker.entity.Author;
 import com.lazypaleobaker.entity.Recipe;
 
 @Service

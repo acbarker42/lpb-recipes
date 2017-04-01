@@ -1,9 +1,7 @@
 package com.lazypaleobaker.service;
 
 import java.util.List;
-import java.util.Set;
 
-import com.lazypaleobaker.entity.Author;
 import com.lazypaleobaker.entity.Recipe;
 
 public interface RecipeService {

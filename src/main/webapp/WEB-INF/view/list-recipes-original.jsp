@@ -12,7 +12,7 @@
 	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" />
 	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/lpb.css" />
 	<script src="<c:url value="/resources/js/modal.js" />"></script>
-
+	<script src="<c:url value="/resources/js/scrollSquishAndMenu.js" />"></script>
 	
 </head>
 
@@ -23,9 +23,13 @@
     <button id="roundButton"></button>
     <h1>Lazy Paleo Baker</h1>
     <div id="searchArea">
-    	<!-- add "recipe management" button -->
-		<input type="button" class="add-button" value="Recipe Management" 
-			onclick="window.location.href='management'; return false;"/>		
+		<!-- add "add" button -->
+		<input type="button" class="add-button" value="Add Recipe" 
+			onclick="window.location.href='showAddForm'; return false;"/>
+		<!-- add "author" button -->
+		<input type="button" class="add-button" value="View By Author" 
+			onclick="window.location.href='../author/list'; return false;"/>
+		
 		<!--  add a search box -->
             <form:form action="search" method="POST">
                 Search recipes: <input type="text" name="theSearchName" />
@@ -34,6 +38,14 @@
             </form:form>
 	</div>
   </div>
+
+    <div id="theMenu">
+      <h2><a href="#">Home</a></h2>
+      <h2><a href="#">About</a></h2>
+      <h2><a href="#">Recipes</a></h2>
+      <h2><a href="#">Resources</a></h2>
+      <h2><a href="#">Contact</a></h2>
+    </div>
 	
 	<!-- The Modal -->
 	<div id="myModal" class="modal">
@@ -54,7 +66,7 @@
 				<tr>
 					<th>Recipe Name</th>
 					<th>Author</th>
-
+					<th>Action</th>
 					
 				</tr>
 				
@@ -78,6 +90,13 @@
 						    <p>	${tempRecipe.directions} <br>
 						 		${tempRecipe.notes}</p>
 						 </div>
+					  	
+
+						<td><a href="${updateLink}"> Update</a>
+						|
+						 <a href="${deleteLink}" 
+						 	 onclick="if(!(confirm('Are you sure you want to delete this recipe?'))) return false;"> Delete</a>
+						 <td>
 						 
 					</tr>
 				
