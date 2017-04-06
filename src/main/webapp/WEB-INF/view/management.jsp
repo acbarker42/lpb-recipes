@@ -1,45 +1,36 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Recipe Management</title>
-	<!-- reference style sheets and javascript -->
-	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" />
-	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/lpb.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lazy Paleo Baker</title>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/lpb.css" />
+	<script src="<c:url value="/resources/js/modal.js" />"></script>
+    <link rel="icon" type="image/png" href="resources/img/favicon.ico">
 </head>
 <body>
-  <div id="wrapper">
-    <div id="pagetop"><img id="cupcake" src="${pageContext.request.contextPath}/resources/img/cupcake.png" />
-    <button id="roundButton"></button>
-    <h1>Lazy Paleo Baker</h1>
-    <div id="searchArea">
-     	<!-- add  buttonz -->
-		<input type="button" class="add-button" value="Add Recipe" 
-			onclick="window.location.href='showAddForm'; return false;"/>
-		<input type="button" class="add-button" value="Add Author" 
-			onclick="window.location.href='../author/showAddForm'; return false;"/>
-		
-		<input type="button" class="add-button" value="View By Author" 
-			onclick="window.location.href='../author/list'; return false;"/>
-		<input type="button" class="add-button" value="Back to Recipes" 
-			onclick="window.location.href='list'; return false;"/>
-		<input type="button" class="add-button" value="Logout" 
-			onclick="window.location.href='list'; return false;"/>
-		<!--  add a search box -->
-            <form:form action="search" method="POST">
-                Search recipes: <input type="text" name="theSearchName" />
-                
-                <input type="submit" value="Search" class="add-button" />
-            </form:form>
-	</div>
-	</div>
-	<div id="container">	
-		<div id="content">
-		
-		     <div id="results">
-		      <h2>Recipe Management</h2>
+  <div class="header">
+  <nav class="top-nav">
+    <a href="${pageContext.request.contextPath}/recipe/list"> Recipes</a>
+    <a href="${pageContext.request.contextPath}/recipe/management"> Recipe Management</a>
+    <a href="${pageContext.request.contextPath}/recipe/showAddForm"> Add Recipe</a>
+    <a href="${pageContext.request.contextPath}/author/showAddForm"> Add Author</a>
+    <a href="${pageContext.request.contextPath}/author/list"> View Authors</a>
+    <a href="${pageContext.request.contextPath}/recipe/list"> Logout</a>
+  </nav>
+    <div class="title-bar">
+
+      <h1 class="title"> Lazy Paleo Baker </h1>
+      <div class="motto">Because Less is More</div>
+      <form:form action="search" class="input-form" method="POST">
+        <input type="search" class="input-field" placeholder="Search..." value="" name="theSearchName">
+		<input type="submit" class="input-button" value="Search">        
+      </form:form>
+			
+    </div>
+    <div class="results">
+			<h1> Recipe Management</h1>
 			<!--  add our html table here -->
 			<br>
 			<table>
@@ -70,22 +61,15 @@
 						    <p>	${tempRecipe.directions} <br>
 						 		${tempRecipe.notes}</p>
 						 </div>
-					  	
-
-						<td><a href="${updateLink}"> Update</a>
-						|
+						<td>
 						 <a href="${deleteLink}" 
 						 	 onclick="if(!(confirm('Are you sure you want to delete this recipe?'))) return false;"> Delete</a>
-						 <td>
-						 
-					</tr>
-				
-				</c:forEach>
-						
+						 <td>					 
+					</tr>			
+				</c:forEach>					
 			</table>
   		</div>
-	</div>
-	</div>
+
   </div>
 </body>
 </html>

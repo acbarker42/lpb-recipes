@@ -10,7 +10,8 @@
         <security:csrf disabled="true" />
         <security:form-login />
         <security:intercept-url access="permitAll" pattern="/" />
-        <security:intercept-url access="permitAll" pattern="/recipe/list" />        
+        <security:intercept-url access="permitAll" pattern="/recipe/list" />
+        <security:intercept-url access="permitAll" pattern="/recipe/search" />        
         <security:intercept-url access="isAuthenticated()" pattern="/recipe/**" />
         <security:intercept-url access="isAuthenticated()" pattern="/author/**" />
 	</security:http>

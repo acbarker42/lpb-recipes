@@ -1,39 +1,38 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <!DOCTYPE html>
 <html>
-
 <head>
-	<title>Save Recipe</title>
-	
-	<!-- reference style sheets and javascript -->
-	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" />
-	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/lpb.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lazy Paleo Baker</title>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/lpb.css" />
+	<script src="<c:url value="/resources/js/modal.js" />"></script>
+    <link rel="icon" type="image/png" href="resources/img/favicon.ico">
 </head>
-
 <body>
-	<div id="wrapper">
-    <div id="pagetop"><img id="cupcake" src="${pageContext.request.contextPath}/resources/img/cupcake.png" />
-    <button id="roundButton"></button>
-    <h1>Lazy Paleo Baker</h1>
-    <div id="searchArea">
-    </div>
-  </div>
+  <div class="header">
+  <nav class="top-nav">
+    <a href="${pageContext.request.contextPath}/recipe/list"> Recipes</a>
+    <a href="${pageContext.request.contextPath}/recipe/management"> Recipe Management</a>
+    <a href="${pageContext.request.contextPath}/recipe/showAddForm"> Add Recipe</a>
+    <a href="${pageContext.request.contextPath}/author/showAddForm"> Add Author</a>
+    <a href="${pageContext.request.contextPath}/author/list"> View Authors</a>
+    <a href="${pageContext.request.contextPath}/recipe/list"> Logout</a>
+  </nav>
+    <div class="title-bar">
 
-    <div id="theMenu">
-      <h2><a href="#">Home</a></h2>
-      <h2><a href="#">About</a></h2>
-      <h2><a href="#">Recipes</a></h2>
-      <h2><a href="#">Resources</a></h2>
-      <h2><a href="#">Contact</a></h2>
+      <h1 class="title"> Lazy Paleo Baker </h1>
+      <div class="motto">Because Less is More</div>
+      <form:form action="search" class="input-form" method="POST">
+        <input type="search" class="input-field" placeholder="Search..." value="" name="theSearchName">
+		<input type="submit" class="input-button" value="Search">        
+      </form:form>
+			
     </div>
-	<div id="container">
-		<div id="content">
-		    <div id="results">
-		<h3>Save Recipe</h3>
+    <div class="results">
+			<h1> Add/Update Recipe</h1>
 	
-		<form:form action="saveRecipe" modelAttribute="recipe" method="POST">
-		
+		<form:form action="saveRecipe" modelAttribute="recipe" method="POST">	
 			<!-- need to associate this data with recipe id -->
 			<form:hidden path="recipeId" />
 			<table>
@@ -45,41 +44,30 @@
 					<tr>
 						<td><label>Author ID:</label></td>
 						<td><form:input path="author.authorId" /></td>
-					</tr>						
-									
+					</tr>														
 					<tr>
 						<td><label>Directions:</label></td>
 						<td><form:input path="directions" /></td>
 					</tr>
-
 					<tr>
 						<td><label>Notes:</label></td>
 						<td><form:input path="notes" /></td>
 					</tr>
-
 					<tr>
 						<td><label></label></td>
 						<td><input type="submit" value="Save" class="save" /></td>
 					</tr>
-
-				
 				</tbody>
-			</table>
-		
-		
-		</form:form>
-	
+			</table>	
+		</form:form>	
 		<div style="clear; both;"></div>
-		
 		<p>
 			<a href="${pageContext.request.contextPath}/recipe/management">Back to List</a>
 		</p>
 	</div>
-	</div>
-	</div>
+
 </div>
 </body>
-
 </html>
 
 
