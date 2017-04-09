@@ -10,15 +10,6 @@
     <link rel="icon" type="image/png" href="resources/img/favicon.ico">
 </head>
 <body>
-	<!-- The Modal -->
-	<div id="myModal" class="modal">
-	
-	  <!-- Modal content -->
-	  <div class="modal-content">
-	    <span class="close">&times;</span>
-	    <p id="modalP">...</p>
-	  </div>
-	 </div>	
   <div class="header">
   <nav class="top-nav">
     <a href="${pageContext.request.contextPath}/recipe/list"> Recipes</a>
@@ -38,6 +29,15 @@
       </form:form>
 			
     </div>
+    	<!-- The Modal -->
+	<div id="myModal" class="modal">
+	
+	  <!-- Modal content -->
+	  <div class="modal-content">
+	    <span class="close">&times;</span>
+	    <p id="modalP">...</p>
+	  </div>
+	 </div>	
     <div class="results">
 			<h1> Recipes</h1>
 			<!--  add our html table here -->
