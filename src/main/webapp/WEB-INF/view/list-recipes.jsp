@@ -7,6 +7,7 @@
     <title>Lazy Paleo Baker</title>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/lpb.css" />
 	<script src="<c:url value="/resources/js/modal.js" />"></script>
+	<script src="<c:url value="/resources/js/printPage.js" />"></script>
     <link rel="icon" type="image/png" href="resources/img/favicon.ico">
 </head>
 <body>
@@ -61,9 +62,10 @@
 						<td><a href="javascript:showRecipeInfo(${tempRecipe.recipeId})"> ${tempRecipe.recipeName}</a></td>
 						<td> ${tempRecipe.author.lastName} </td>
 						<div id="${tempRecipe.recipeId}" class="hidden">
-						    <p>${tempRecipe.recipeName} <br>	
+						    <p><h2>${tempRecipe.recipeName}</h2>	
 						    	${tempRecipe.directions} <br>
-						 		${tempRecipe.notes}</p>
+						 		${tempRecipe.notes}<br>
+						 		<a href="javascript:printPage(${tempRecipe.recipeId})"> Print Recipe</a></p>
 						 </div>
 						 
 					</tr>
