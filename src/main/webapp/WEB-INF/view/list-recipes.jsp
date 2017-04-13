@@ -14,10 +14,6 @@
   <nav class="top-nav">
     <a href="${pageContext.request.contextPath}/recipe/list"> Recipes</a>
     <a href="${pageContext.request.contextPath}/recipe/management"> Recipe Management</a>
-    <a href="${pageContext.request.contextPath}/recipe/showAddForm"> Add Recipe</a>
-    <a href="${pageContext.request.contextPath}/author/showAddForm"> Add Author</a>
-    <a href="${pageContext.request.contextPath}/author/list"> View Authors</a>
-    <a href="${pageContext.request.contextPath}/recipe/list"> Logout</a>
   </nav>
     <div class="title-bar">
 
@@ -65,7 +61,8 @@
 						<td><a href="javascript:showRecipeInfo(${tempRecipe.recipeId})"> ${tempRecipe.recipeName}</a></td>
 						<td> ${tempRecipe.author.lastName} </td>
 						<div id="${tempRecipe.recipeId}" class="hidden">
-						    <p>	${tempRecipe.directions} <br>
+						    <p>${tempRecipe.recipeName} <br>	
+						    	${tempRecipe.directions} <br>
 						 		${tempRecipe.notes}</p>
 						 </div>
 						 

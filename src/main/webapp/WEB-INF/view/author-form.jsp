@@ -17,7 +17,7 @@
     <a href="${pageContext.request.contextPath}/recipe/showAddForm"> Add Recipe</a>
     <a href="${pageContext.request.contextPath}/author/showAddForm"> Add Author</a>
     <a href="${pageContext.request.contextPath}/author/list"> View Authors</a>
-    <a href="${pageContext.request.contextPath}/recipe/list"> Logout</a>
+    <a href="${pageContext.request.contextPath}/logout"> Logout</a>
   </nav>
     <div class="title-bar">
 
@@ -62,7 +62,7 @@
 					</tr>
 					<tr>
 						<td><label></label></td>
-						<td><input type="submit" value="Save" class="save" /></td>
+						<td><input class="input-button" type="submit" value="Save" class="save" /></td>
 					</tr>
 				</tbody>
 			</table>

@@ -93,4 +93,5 @@ public class RecipeController {
 		theModel.addAttribute("recipes", theRecipes);
 		return "management";
 	}
+
 }
